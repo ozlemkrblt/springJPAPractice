@@ -21,10 +21,10 @@ public class Kullanici {
             generator = "kullanici_seq"
     )
     @Column(
-            name="id",
+            name="kullaniciId",
             updatable = false
     )
-    private Long id;
+    private Long kullaniciId;
     @Column(
             name="ad",
             nullable = false,
@@ -63,12 +63,12 @@ public class Kullanici {
 
     }
 
-    public Long getId() {
-        return id;
+    public Long getKullaniciId() {
+        return kullaniciId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setKullaniciId(Long id) {
+        this.kullaniciId = kullaniciId;
     }
 
     public String getAd() {
@@ -106,7 +106,7 @@ public class Kullanici {
     @Override
     public String toString() {
         return "Kullanici{" +
-                "id=" + id +
+                "kullanici id=" + kullaniciId +
                 ", ad='" + ad + '\'' +
                 ", soyad='" + soyad + '\'' +
                 ", e_mail='" + e_mail + '\'' +
