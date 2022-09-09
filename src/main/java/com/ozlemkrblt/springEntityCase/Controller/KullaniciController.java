@@ -1,8 +1,6 @@
 package com.ozlemkrblt.springEntityCase.Controller;
 
 import com.ozlemkrblt.springEntityCase.Model.Kullanici;
-import org.hibernate.Session;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,8 +9,11 @@ import java.util.Optional;
 @RestController
 public class KullaniciController {
 
-        private final KullaniciService kullaniciService;
+        private  KullaniciService kullaniciService;
 
+    public KullaniciController(KullaniciService kullaniciService) {
+        this.kullaniciService = kullaniciService;
+    }
 
 
     @RequestMapping(value = "/kullanicilar")
@@ -34,7 +35,7 @@ public class KullaniciController {
         }
 
         @RequestMapping(value = "/kullanicilar/{id}", method = RequestMethod.PUT)
-        public void updateKullanici@RequestBody Kullanici kullanici,@PathVariable Long id ) {
+        public void updateKullanici(@RequestBody Kullanici kullanici,@PathVariable Long id) {
             kullaniciService.updateKullanici(id, kullanici);
         }
 
@@ -43,10 +44,5 @@ public class KullaniciController {
             kullaniciService.deleteKullanici(id);
 
         }
-        public void updateKullanici(Long id, Kullanici kullanici) {
-            kullaniciRepository.save(kullanici);
-    }
-    public void deleteKullanici(Long id) {
-        kullaniciRepository.deleteById(id);
-    }
+
 }

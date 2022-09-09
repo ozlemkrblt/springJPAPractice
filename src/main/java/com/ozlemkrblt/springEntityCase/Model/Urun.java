@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity(name = "Urun")
-@Table(name="Urun")
+@Table(name= "Urun")
 public class Urun{
 
     @Id
@@ -42,6 +42,10 @@ public class Urun{
         this.urunAdi = urunAdi;
         this.fiyat = fiyat;
         this.skt = skt;
+    }
+
+    public Urun() {
+
     }
 
     public Long getUrunId() {

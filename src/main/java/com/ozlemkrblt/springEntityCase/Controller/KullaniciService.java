@@ -13,9 +13,6 @@ import java.util.Optional;
 public class KullaniciService {
     public KullaniciRepository kullaniciRepository;
 
-
-    kullaniciRepository.findAll();
-
     public List<Kullanici> getAllKullanicilar() {
 
         List<Kullanici> kullanicilar = new ArrayList<>();
@@ -32,5 +29,12 @@ public class KullaniciService {
 
     public Optional<Kullanici> getKullanici(Long id) {
         return kullaniciRepository.findById(id);
+    }
+
+    public void updateKullanici(Long id, Kullanici kullanici) {
+        kullaniciRepository.save(kullanici);
+    }
+    public void deleteKullanici(Long id) {
+        kullaniciRepository.deleteById(id);
     }
 }
